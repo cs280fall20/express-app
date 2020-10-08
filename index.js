@@ -58,6 +58,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/api/schools", (req, res) => {
+  console.log(req.query.key);
   res.json(schools);
 });
 
