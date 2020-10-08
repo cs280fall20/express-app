@@ -60,6 +60,8 @@ courses = [
   },
 ];
 
+app.use(express.static("assets"));
+
 app.get("/", (req, res) => {
   res.sendFile(path.resolve(__dirname, "index.html"));
 });
