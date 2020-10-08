@@ -59,7 +59,8 @@ app.get("/", (req, res) => {
 });
 
 app.get("/dashboard", (req, res) => {
-  res.send(`Welcome ${req.query.uname}`);
+  console.log(`Welcome ${req.query.uname}`);
+  res.sendFile(path.resolve(__dirname, "dashboard.html"));
 });
 
 app.get("/api/schools", (req, res) => {
