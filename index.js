@@ -1,7 +1,13 @@
+const nunjucks = require("nunjucks");
 const path = require("path");
 const express = require("express");
 const app = express();
 const port = 5000;
+
+nunjucks.configure("views", {
+  autoescape: true,
+  express: app,
+});
 
 // sample schools
 schools = [
@@ -59,8 +65,10 @@ app.get("/", (req, res) => {
 });
 
 app.get("/dashboard", (req, res) => {
-  console.log(`Welcome ${req.query.uname}`);
-  res.sendFile(path.resolve(__dirname, "dashboard.html"));
+  let data = {
+    uname: req.query.uname,
+  };
+  res.render("dashboard.njk", data);
 });
 
 app.get("/api/schools", (req, res) => {
