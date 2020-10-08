@@ -1,3 +1,4 @@
+const path = require("path");
 const express = require("express");
 const app = express();
 const port = 5000;
@@ -54,7 +55,7 @@ courses = [
 ];
 
 app.get("/", (req, res) => {
-  res.send("Hello Express!");
+  res.sendFile(path.resolve(__dirname, "index.html"));
 });
 
 app.get("/api/schools", (req, res) => {
