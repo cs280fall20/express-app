@@ -58,6 +58,10 @@ app.get("/", (req, res) => {
   res.sendFile(path.resolve(__dirname, "index.html"));
 });
 
+app.get("/dashboard", (req, res) => {
+  res.send(`Welcome ${req.query.uname}`);
+});
+
 app.get("/api/schools", (req, res) => {
   console.log(req.query.key);
   res.json(schools);
